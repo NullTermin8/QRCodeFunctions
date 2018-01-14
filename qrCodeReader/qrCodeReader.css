@@ -16,11 +16,11 @@ input, label {
 }
 .qrcode-text-btn {
 	display:inline-block;
-	background:url("qr_icon.svg") 50% 50% no-repeat;
+	background:url('qr_icon.svg') 50% 50% no-repeat;
 	height:1em;
 	width:1.7em;
 	margin-left:-1.7em;
-	cursor:pointer'
+	cursor:pointer;
 }
 .qrcode-text-btn > input[type=file]{
 	position:absolute;
