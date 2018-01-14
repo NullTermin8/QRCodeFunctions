@@ -1,3 +1,4 @@
+
 function createQRCode(fromId = 0, cost = 0 , eventID = 'NA', TTL= 0){
   if (fromId == 0){
     callback(new Error('No From ID has been specified...'))
@@ -16,12 +17,11 @@ function createQRCode(fromId = 0, cost = 0 , eventID = 'NA', TTL= 0){
     //error, no TTL
   }
 
-  var obj = '{"fromID" : \"'+fromId+'\",'
-       +'"cost"  : \"'+cost+'\",'
-       +'"eventID" : \"'+eventID+'\",'
-       +'"TTL : \"'+TTL+'\"}';
-  url="https://api.qrserver.com/v1/create-qr-code/?size=150x150"+obj
-  var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+  var obj = '\{\"fromID\" : \"'+fromId+'\",'
+       +'\"cost\"  : \"'+cost+'\",'
+       +'\"eventID\" : \"'+eventID+'\",'
+       +'\"TTL : \"'+TTL+'\"\}';
+  url="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+obj
   var anHttpRequest = new XMLHttpRequest();
   anHttpRequest.onreadystatechange = function() { 
     if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
@@ -30,3 +30,28 @@ function createQRCode(fromId = 0, cost = 0 , eventID = 'NA', TTL= 0){
   anHttpRequest.open( "GET", url, true );            
   anHttpRequest.send( null );
 }
+var qrcode = new QRCode("qrcode");
+
+function makeCode () {      
+    var elText = document.getElementById("text");
+    
+    if (!elText.value) {
+        alert("Input a text");
+        elText.focus();
+        return;
+    }
+    
+    qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+    on("blur", function () {
+        makeCode();
+    }).
+    on("keydown", function (e) {
+        if (e.keyCode == 13) {
+            makeCode();
+        }
+    });
