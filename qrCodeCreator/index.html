@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html>
   <body>
-  <textarea rows="1" cols="10" id="fromID">
-  fromID
-  </textarea>
-  <textarea rows="1" cols="10" id="cost">
-  cost
-  </textarea>
-  <textarea rows="1" cols="10" id="eventID">
-  eventID
-  </textarea>
-  <textarea rows="1" cols="10" id="TTL">
-  TTL
-  </textarea>
+  The ID of the person giving the points: <input type="text" onfocus="this.value=''" id="fromID" value="Enter Number Here"><br><br>
+  The points that the QR code will give to the redeemer: <input onfocus="this.value=''" type="text'" id="cost" value="Enter Number Here"><br><br>
+  The ID of the event that the points will be given during: <input onfocus="this.value=''" type="text" id="eventID" value="Enter ID of Event Here"><br><br>
+  The duration of time when the QR code will be usable: <input onfocus="this.value=''" type="text" id="TTL" value="Enter Hours Here"> hours<br>
   <div id="errorMessage">
   </div>
   <script src="qr_creator.js"></script>
