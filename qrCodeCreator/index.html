@@ -1,42 +1,25 @@
 <!DOCTYPE html>
 <html>
-<body>
-<textarea rows="1" cols="10" id="fromID">
-fromID
-</textarea>
-<textarea rows="1" cols="10" id="cost">
-cost
-</textarea>
-<textarea rows="1" cols="10" id="eventID">
-eventID
-</textarea>
-<textarea rows="1" cols="10" id="TTL">
-TTL
-</textarea>
-<div id="errorMessage">
-</div>
-<script src="qr_creator.js"></script>
-<script>
-function myFunction() {
+  <body>
+  <textarea rows="1" cols="10" id="fromID">
+  fromID
+  </textarea>
+  <textarea rows="1" cols="10" id="cost">
+  cost
+  </textarea>
+  <textarea rows="1" cols="10" id="eventID">
+  eventID
+  </textarea>
+  <textarea rows="1" cols="10" id="TTL">
+  TTL
+  </textarea>
+  <div id="errorMessage">
+  </div>
+  <script src="qr_creator.js"></script>
+  <br>
+  <button onclick="createQRCode(document.getElementById('fromID').value,document.getElementById('cost').value,document.getElementById('eventID').value,document.getElementById('TTL').value)">Generate QR Code</button>
+  <img id="myImage" style="width:100px">
 
 
-  console.log("hello")
-  var url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={";
-  console.log("url="+url);
-  url = url +"\"fromID\":"+document.getElementById("fromID").value+",";
-  console.log("url="+url);
-  url = url + "\"cost\":"+document.getElementById("cost").value+",";
-  console.log("url="+url);
-  url = url + "\"eventID\":\""+document.getElementById("eventID").value+"\",";
-  console.log("url="+url);
-  url = url + "\"TTL\":"+document.getElementById("TTL").value+"}";
-  document.getElementById('myImage').src=url;
-}
-</script>
-<br>
-<button onclick="createQRCode(document.getElementById('fromID').value,document.getElementById('cost').value,document.getElementById('eventID').value,document.getElementById('TTL').value)">Turn on the light</button>
-<img id="myImage" style="width:100px">
-
-
-</body>
+  </body>
 </html>

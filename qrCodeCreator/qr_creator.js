@@ -1,29 +1,34 @@
 
-function createQRCode(fromId, cost , eventID, TTL){
-  if (isNaN(fromId) || fromId == '' || fromId.localeCompare('fromID')){
+function createQRCode(fromID, cost , eventID, TTL){
+  fromID = fromID.trim()
+  if (isNaN(fromID) || fromID == '' || fromID == 'fromID'){
     document.getElementById('errorMessage').innerHTML = 'No proper FromID has been specified...';
     return
     //error, no fromID specified
   }
 
+  cost = cost.trim()
   if (isNaN(cost) || cost == '' || cost == 'cost' || cost < 0){
     document.getElementById('errorMessage').innerHTML = 'No proper cost has been specified...';
     return
     //error, no fromID specified
   }
-  console.log("eventID="+eventID)
-  if (eventID.localeCompare('eventID') || eventID == ''){
+  eventID = eventID.trim()
+  console.log("eventID-"+eventID+"-")
+  if (eventID == 'eventID' || eventID == ''){
     document.getElementById('errorMessage').innerHTML = 'No eventID has been specified...';
     return
     //error, no eventID
   }
+
+  TTL = TTL.trim()
   if (isNaN(TTL) || TTL == '' || TTL == 'TTL' || TTL < 0){
     document.getElementById('errorMessage').innerHTML = "No proper TTL has been specified";
     return
     //error, no TTL
   }
   console.log("hello")
-  var obj = '\{\"fromID\" : \"'+fromId+'\",'
+  var obj = '\{\"fromID\" : \"'+fromID+'\",'
        +'\"cost\"  : \"'+cost+'\",'
        +'\"eventID\" : \"'+eventID+'\",'
        +'\"TTL : \"'+TTL+'\"\}';
