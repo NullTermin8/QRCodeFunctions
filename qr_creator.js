@@ -1,4 +1,4 @@
-function createQRCode(fromId = 0, cost = 0 , eventID = 'NA', TTL= 'NA'){
+function createQRCode(fromId = 0, cost = 0 , eventID = 'NA', TTL= 0){
   if (fromId == 0){
     callback(new Error('No From ID has been specified...'))
     //error, no fromID specified
@@ -11,7 +11,7 @@ function createQRCode(fromId = 0, cost = 0 , eventID = 'NA', TTL= 'NA'){
     callback(new Error('No eventID has been specified...'))
     //error, no eventID
   }
-  if (TTL == 'NA'){
+  if (TTL == 0){
     callback(new Error("No TTL has been specified..."))
     //error, no TTL
   }
