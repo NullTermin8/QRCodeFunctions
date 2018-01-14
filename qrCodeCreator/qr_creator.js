@@ -28,10 +28,10 @@ function createQRCode(fromID, cost , eventID, TTL){
     //error, no TTL
   }
   console.log("hello")
-  var obj = '\{\"fromID\" : \"'+fromID+'\",'
-       +'\"cost\"  : \"'+cost+'\",'
-       +'\"eventID\" : \"'+eventID+'\",'
-       +'\"TTL : \"'+TTL+'\"\}';
-  url="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+obj
+  var obj = '\{\"fromID\":\"'+fromID+'\",'
+       +'\"cost\":\"'+cost+'\",'
+       +'\"eventID\":\"'+eventID+'\",'
+       +'\"TTL:\"'+TTL+'\"\}';
+  url="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+obj
   document.getElementById('myImage').src=url;
 }
